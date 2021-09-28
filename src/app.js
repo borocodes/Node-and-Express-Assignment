@@ -7,11 +7,10 @@ const validateAdmin = require("./middleware/validateAdmin");
 const getZoos = require("./utils/getZoos");
 
 //Routes
-//zoos/all goes here
-// app.get("/zoos/all", validateAdmin, (req, res, next) => {
-//   const content = `All zoos: ${getZoos().join("; ")}`;
-//   res.send(content);
-// });
+app.get("/zoos/all", validateAdmin, (req, res, next) => {
+  const allZoos = `All zoos: ${getZoos().join("; ")}`;
+  res.send(allZoos);
+});
 
 app.get("/check/:zip", validateZip, (req, res, next) => {
   const zip = req.params.zip;
